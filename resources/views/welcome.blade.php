@@ -84,7 +84,7 @@
 
                 <div class="links">
                     <a href="https://news.kofixlabs.co">Blogs</a>
-                    <a href="https://class.kofixlabs.co">Classes</a>
+                    <a href="https://experiment.kofixlabs.co/class-list">Classes</a>
                     <a href="https://docs.kofixlabs.co">Docs & API</a>
                     <a href="https://experiment.kofixlabs.co">Experiments</a>
                     <a href="https://github.com/kofix-ml/Kofix-Quickstart">Quickstart</a>

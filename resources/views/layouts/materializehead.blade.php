@@ -66,7 +66,7 @@
 <body>
    <nav>
         <div class="nav-wrapper container">
-          <a href="#" class="brand-logo">Logo</a>
+          <a href="#" class="brand-logo">Kofix</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="sass.html">All Class</a></li>
             <li><a href="badges.html">This month</a></li>
@@ -92,7 +92,7 @@
               selectMonths: true, // Creates a dropdown to control month
               selectYears: 15 // Creates a dropdown of 15 years to control year
             });
-
+            $('input#input_text, textarea#Description').characterCounter();
         });
        
     </script>

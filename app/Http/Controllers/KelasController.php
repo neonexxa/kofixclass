@@ -10,6 +10,15 @@ use Carbon\Carbon;
 class KelasController extends Controller
 {
     //
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /*
     *
     *   Changes for Preview
@@ -126,8 +135,10 @@ class KelasController extends Controller
    	*
    	*/
    	
-   	public function edit (Request $request){
+   	public function edit (Request $request,$id){
    	    $parameters = $request->all();
+        $kelas = Kelas::find($id);
+        return view('kelas.edit',compact('kelas'));
    	}
    		
 }

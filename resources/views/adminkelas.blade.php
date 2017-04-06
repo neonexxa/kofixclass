@@ -18,7 +18,7 @@
                 <th data-field="id">id</th>
 				<th data-field="Title">Title</th>
 				
-				<th data-field="Date">Date</th>
+				<th data-field="Date">When</th>
 				<th data-field="Time">Time</th>
 				<th data-field="Location">Location</th>
 				
@@ -36,7 +36,7 @@
                 <td>{{ $class->id }}</td>
 				<td>{{ $class->Title }}</td>
 				
-				<td>{{ $class->Date }}</td>
+				<td>{{ \Carbon\Carbon::parse($class->Date)->diffForHumans() }}</td>
 				<td>{{ $class->Time }}</td>
 				<td>{{ $class->Location }}</td>
 				
