@@ -19,6 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/preview', 'KelasController@preview');
+Route::get('/preview', 'HomeController@preview');
 
 Route::resource('class', 'KelasController');
