@@ -48,17 +48,17 @@ class KelasController extends Controller
    	    $parameters = $request->all();
 
    	    $kelas = new Kelas;
-		$kelas->Title 			= $parameters['Title'];
-		$kelas->Description 	= $parameters['Description'];
-		$kelas->Date 			= new Carbon($parameters['Date']);
-		$kelas->Time 			= $parameters['Time'];
-		$kelas->Location 		= $parameters['Location'];
-		$kelas->Poster 			= $parameters['Poster'];
-		$kelas->Register_link 	= $parameters['Register_link'];
-		$kelas->Price 			= $parameters['Price'];
-		$kelas->Trainer 		= $parameters['Trainer'];
-		$kelas->save();
-		$classes = DB::table('kelas')->get();
+    		$kelas->Title 			    = $parameters['Title'];
+    		$kelas->Description 	  = $parameters['Description'];
+    		$kelas->Date 			      = new Carbon($parameters['Date']);
+    		$kelas->Time 			      = $parameters['Time'];
+    		$kelas->Location 		    = $parameters['Location'];
+    		$kelas->Poster 			    = $parameters['Poster'];
+    		$kelas->Register_link 	= $parameters['Register_link'];
+    		$kelas->Price 			    = $parameters['Price'];
+    		$kelas->Trainer 		    = $parameters['Trainer'];
+    		$kelas->save();
+    		$classes = DB::table('kelas')->get();
    	    return view('adminkelas',compact('classes'));
    	}
    	
@@ -83,8 +83,20 @@ class KelasController extends Controller
    	*
    	*/
    	
-   	public function update (Request $request){
+   	public function update (Request $request, $id){
    	    $parameters = $request->all();
+        $kelas = Kelas::find($id);
+        $kelas->Title           = $parameters['Title'];
+        $kelas->Description     = $parameters['Description'];
+        $kelas->Date            = new Carbon($parameters['Date']);
+        $kelas->Time            = $parameters['Time'];
+        $kelas->Location        = $parameters['Location'];
+        $kelas->Poster          = $parameters['Poster'];
+        $kelas->Register_link   = $parameters['Register_link'];
+        $kelas->Price           = $parameters['Price'];
+        $kelas->Trainer         = $parameters['Trainer'];
+        $kelas->save();
+
    	}
    	
    	/*
@@ -95,8 +107,11 @@ class KelasController extends Controller
    	*
    	*/
    	
-   	public function destroy (Request $request){
-   	    $parameters = $request->all();
+   	public function destroy ($id){
+   	    $kelas = Kelas::find($id);
+        $kelas->delete();
+
+        return redirect()->route('class.index');
    	}
    	
    	/*
@@ -107,8 +122,8 @@ class KelasController extends Controller
    	*
    	*/
    	
-   	public function show (Request $request){
-   	    $parameters = $request->all();
+   	public function show ($id){
+   	    
    	}
    	
    	/*
@@ -119,8 +134,7 @@ class KelasController extends Controller
    	*
    	*/
    	
-   	public function edit (Request $request,$id){
-   	    $parameters = $request->all();
+   	public function edit ($id){
         $kelas = Kelas::find($id);
         return view('kelas.edit',compact('kelas'));
    	}
