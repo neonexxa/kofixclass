@@ -43,12 +43,11 @@
 				
 				
 				
-                    <td><a class="waves-effect waves-light btn yellow" href="{{ URL::to('/class/' . $class->id . '/edit') }}">
+                    <td><a class="waves-effect waves-light btn yellow" href="{{ route('class.edit', ['class' => $class->id]) }}">
                     	<i class="material-icons">edit</i></a>
                     </td>
                     <td>
-                    {{ Form::open(array('url' => 'class/' . $class->id)) }}
-                        {{ Form::hidden('_method', 'DELETE') }}
+                    {!! Form::model($booking, ['route' => ['class.destroy', $class->id], 'method' => 'DELETE']) !!}
                         <button class="btn waves-effect waves-light red" type="submit" name="action">
                           <i class="material-icons">delete</i>
                         </button>
