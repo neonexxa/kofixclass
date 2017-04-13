@@ -47,7 +47,7 @@
                     	<i class="material-icons">edit</i></a>
                     </td>
                     <td>
-                    {!! Form::model($booking, ['route' => ['class.destroy', $class->id], 'method' => 'DELETE']) !!}
+                    {!! Form::model($class, ['route' => ['class.destroy', $class->id], 'method' => 'DELETE']) !!}
                         <button class="btn waves-effect waves-light red" type="submit" name="action">
                           <i class="material-icons">delete</i>
                         </button>
