@@ -94,7 +94,7 @@ class KelasController extends Controller
         $kelas->Price           = $parameters['Price'];
         $kelas->Trainer         = $parameters['Trainer'];
         $kelas->save();
-
+        return redirect()->route('class.index');
    	}
    	
    	/*
