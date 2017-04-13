@@ -53,7 +53,6 @@ class KelasController extends Controller
     		$kelas->Date 			      = new Carbon($parameters['Date']);
     		$kelas->Time 			      = $parameters['Time'];
     		$kelas->Location 		    = $parameters['Location'];
-    		$kelas->Poster 			    = $parameters['Poster'];
     		$kelas->Register_link 	= $parameters['Register_link'];
     		$kelas->Price 			    = $parameters['Price'];
     		$kelas->Trainer 		    = $parameters['Trainer'];
@@ -91,7 +90,6 @@ class KelasController extends Controller
         $kelas->Date            = new Carbon($parameters['Date']);
         $kelas->Time            = $parameters['Time'];
         $kelas->Location        = $parameters['Location'];
-        $kelas->Poster          = $parameters['Poster'];
         $kelas->Register_link   = $parameters['Register_link'];
         $kelas->Price           = $parameters['Price'];
         $kelas->Trainer         = $parameters['Trainer'];
