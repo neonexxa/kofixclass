@@ -257,19 +257,22 @@ header h1 {
 .cd-timeline-content h2 {
   color: #303e49;
 }
+.cd-read-more{
+  display: -webkit-box;
+}
 .cd-timeline-content p, .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
   font-size: 13px;
   font-size: 0.8125rem;
 }
-.cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+/*.cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
   display: inline-block;
-}
+}*/
 .cd-timeline-content p {
   margin: 1em 0;
   line-height: 1.6;
 }
 .cd-timeline-content .cd-read-more {
-  float: right;
+  /*float: right;*/
   padding: .8em 1em;
   background: #acb7c0;
   color: white;
@@ -320,7 +323,7 @@ header h1 {
     border-left-color: white;
   }
   .cd-timeline-content .cd-read-more {
-    float: left;
+    /*float: left;*/
   }
   .cd-timeline-content .cd-date {
     position: absolute;
@@ -341,7 +344,7 @@ header h1 {
     border-right-color: white;
   }
   .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more {
-    float: right;
+    /*float: right;*/
   }
   .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-date {
     left: auto;
