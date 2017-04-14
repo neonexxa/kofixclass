@@ -17,7 +17,7 @@ class HomeController extends Controller
         
     public function preview (Request $request){
         $parameters = $request->all();
-        $classes = DB::table('kelas')->orderBy('Date','DESC')->get();
+        $classes = DB::table('kelas')->orderBy('Date','ASC')->get();
         $classes = $classes->all();
         // dd($classes);
         $icon = array("img/cd-icon-picture.svg","img/cd-icon-location.svg","img/cd-icon-movie.svg");
