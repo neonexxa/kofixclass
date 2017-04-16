@@ -34,7 +34,12 @@
 			<strong>Price :</strong>	 {{$class->Price}}   	<br>
 		</div>
 		<div class="one_action">
-			<a href="{{ $class->Register_link }}">Register Now!!</a>
+			@if ($class->Register_link == "nolink" || $class->Register_link == null)
+                <a href="{{ route('error.show', ['error' => 'link']) }}">Not Open For Registration</a>
+            @else
+                <a href="{{ $class->Register_link }}">Register Now!!</a>
+            @endif
+			
 		</div>
 	</div>
 <div class="prev_next">

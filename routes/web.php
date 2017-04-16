@@ -19,6 +19,11 @@ Auth::routes();
 
 Route::resource('preview', 'HomeController',
                 ['only' => ['index', 'show']]);
+Route::resource('error', 'ErrorController',
+                ['only' => ['show']]);
+
 Route::get('/v2preview', 'HomeController@v2preview');
 
 Route::resource('class', 'KelasController');
+
+
