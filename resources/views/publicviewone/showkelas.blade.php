@@ -16,7 +16,12 @@
 			{{$class->Date}}
 		</div>
 		<div class="one_poster">
-			haha
+			@if ($class->Poster == "noimage" || $class->Poster == null)
+                <img src="/img/firewall_man.png" alt="" width="100%" height="250">
+            @else
+                <img src="/uploads/{{ $class->id }}/{{$class->Poster}}" alt="" width="100%" height="155">
+            @endif
+                                                
 		</div>
 		<div class="one_description">
 			<p>

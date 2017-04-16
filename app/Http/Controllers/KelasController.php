@@ -21,7 +21,7 @@ class KelasController extends Controller
     }
     
     	
-   	/*
+   	/**
    	*
    	*   Changes for Index
    	*   Description :   
@@ -46,17 +46,33 @@ class KelasController extends Controller
    	public function store (Request $request){
 
    	    $parameters = $request->all();
-
+        // dd($parameters);
    	    $kelas = new Kelas;
-    		$kelas->Title 			    = $parameters['Title'];
-    		$kelas->Description 	  = $parameters['Description'];
-    		$kelas->Date 			      = new Carbon($parameters['Date']);
-    		$kelas->Time 			      = $parameters['Time'];
-    		$kelas->Location 		    = $parameters['Location'];
-    		$kelas->Register_link 	= $parameters['Register_link'];
-    		$kelas->Price 			    = $parameters['Price'];
-    		$kelas->Trainer 		    = $parameters['Trainer'];
-    		$kelas->save();
+        $fields = [
+                    'Title'         => $parameters['Title'],
+                    'Description'   => $parameters['Description'],
+                    'Date'          => new Carbon($parameters['Date']),
+                    'Time'          => $parameters['Time'],
+                    'Location'      => $parameters['Location'],
+                    'Register_link' => $parameters['Register_link'],
+                    'Price'         => $parameters['Price'],
+                    'Poster'        => 'noposter',
+                    'Trainer'       => $parameters['Trainer'],
+        ];
+        $kelas = $kelas->create($fields);
+
+        //  storing image
+        $file = $request->file('Poster');
+        $extension = $file->getClientOriginalExtension();
+        $imageName = $kelas->id . '_' . rand(11111,99999) . '.' . $extension;
+        // dd($imageName);
+        
+        $request->file('Poster')->move(
+            base_path() . '/public/uploads/'.$kelas->id, $imageName
+        );
+        $kelas->Poster = $imageName;
+        $kelas->save();
+
     		$classes = DB::table('kelas')->get();
    	    return view('adminkelas',compact('classes'));
    	}
@@ -93,6 +109,21 @@ class KelasController extends Controller
         $kelas->Register_link   = $parameters['Register_link'];
         $kelas->Price           = $parameters['Price'];
         $kelas->Trainer         = $parameters['Trainer'];
+
+        if (isset($parameters['Poster'])) {
+          $file = $request->file('Poster');
+          $extension = $file->getClientOriginalExtension();
+          $imageName = $kelas->id . '_' . rand(11111,99999) . '.' . $extension;
+          // dd($imageName);
+          $request->file('Poster')->move(
+              base_path() . '/public/uploads/'.$kelas->id, $imageName
+          );
+          $kelas->Poster = $imageName;
+        }else{
+          $kelas->Poster = $kelas->Poster;
+        }
+        
+
         $kelas->save();
         return redirect()->route('class.index');
    	}
