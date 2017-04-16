@@ -13,7 +13,7 @@
 			{{$class->Title}}
 		</div>
 		<div class="one_time">
-			{{$class->Date}}
+			{{\Carbon\Carbon::parse($class->Date)->diffForHumans()}}
 		</div>
 		<div class="one_poster">
 			@if ($class->Poster == "noimage" || $class->Poster == null)
